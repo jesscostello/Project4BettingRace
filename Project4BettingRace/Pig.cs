@@ -12,7 +12,6 @@ namespace Project4BettingRace
         public string Name { get; set; }
         public int Length { get; set; }
         public PictureBox myPB { get; set; }
-
         // Direction which pig will travel towards
         public string StartingLocation { get; set; }
         public int StartingPosition { get; set; }
@@ -22,64 +21,22 @@ namespace Project4BettingRace
 
         public void Run()
         {
-            //bool endRace = false;
-
-            //while (endRace != true)
-            //{
-                //Application.DoEvents();
-                if (StartingLocation == "Top")
-                {
-                    //while (Winner != true)
-                    //{
-                        //Application.DoEvents();
-                        myPB.Top += myrnd.Next(1, 5);
-                        //if ((myPB.Top + 89) > FinishLine)
-                        //{
-                        //    Winner = true;
-                        //    //endRace = true;
-                        //}
-                    //}
-                }
-                else if (StartingLocation == "Right")
-                {
-                    //while (Winner != true)
-                    //{
-                        //Application.DoEvents();
-                        myPB.Left -= myrnd.Next(1, 5);
-                        //if ((myPB.Left) < FinishLine)
-                        //{
-                        //    Winner = true;
-                        //    //endRace = true;
-                        //}
-                    //}
-                }
-                else if (StartingLocation == "Bottom")
-                {
-                    //while (Winner != true)
-                    //{
-                        //Application.DoEvents();
-                        myPB.Top -= myrnd.Next(1, 5);
-                        //if (myPB.Top < FinishLine)
-                        //{
-                        //    Winner = true;
-                        //    //endRace = true;
-                        //}
-                    //}
-                }
-                else if (StartingLocation == "Left")
-                {
-                    //while (Winner != true)
-                    //{
-                        //Application.DoEvents();
-                        myPB.Left += myrnd.Next(1, 5);
-                        //if ((myPB.Left + 89) > FinishLine)
-                        //{
-                        //    Winner = true;
-                        //    //endRace = true;
-                        //}
-                    //}
-                } 
-            //}
+            if (StartingLocation == "Top")
+            {
+                myPB.Top += myrnd.Next(1, 5);
+            }
+            else if (StartingLocation == "Right")
+            {
+                myPB.Left -= myrnd.Next(1, 5);
+            }
+            else if (StartingLocation == "Bottom")
+            {
+                myPB.Top -= myrnd.Next(1, 5);
+            }
+            else if (StartingLocation == "Left")
+            {
+                myPB.Left += myrnd.Next(1, 5);
+            } 
         }
     }
 }

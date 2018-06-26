@@ -32,145 +32,57 @@ namespace Project4BettingRace
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var myrnd = new Random();
             bool endRace = false;
             while (endRace != true)
             {
 
                 for (int i = 0; i < 4; i++)
                 {
-                    //do
-                    //{
                     Application.DoEvents();
                     myPig[i].Run();
 
                     if (myPig[i].StartingLocation == "Top")
                     {
-                        
-                            if ((myPig[i].myPB.Top + 89) > myPig[i].FinishLine)
-                            {
-                            //myPig[i].Winner = true;
-                                endRace = true;
-                            }
-                        
+                        if ((myPig[i].myPB.Top + 89) > myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                        }
                     }
                     else if (myPig[i].StartingLocation == "Right")
                     {
-                        
-                            if ((myPig[i].myPB.Left) < myPig[i].FinishLine)
-                            {
-                            //myPig[i].Winner = true;
-                                endRace = true;
-                            }
-                       
+                        if ((myPig[i].myPB.Left) < myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                        }
                     }
                     else if (myPig[i].StartingLocation == "Bottom")
                     {
-                       
-                            if (myPig[i].myPB.Top < myPig[i].FinishLine)
-                            {
-                            //myPig[i].Winner = true;
-                                endRace = true;
-                            }
-                        
+                        if (myPig[i].myPB.Top < myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                        }
                     }
                     else if (myPig[i].StartingLocation == "Left")
                     {
-                        
-                            if ((myPig[i].myPB.Left + 89) > myPig[i].FinishLine)
-                            {
-                            //myPig[i].Winner = true;
-                                endRace = true;
-                            }
-                       
+                        if ((myPig[i].myPB.Left + 89) > myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                        }
                     }
-
-                    //if (myPig[i].Winner == true)
-                    //{
-                    //    endRace = true;
-                    //}
-                    //} while (endRace != true);
-
-
-                    //if (myPig[i].Direction == "Bottom")
-                    //{
-                    //    while (endRace != true)
-                    //    {
-                    //        Application.DoEvents();
-                    //        myPig[i].myPB.Top += myrnd.Next(1, 5);
-                    //        if ((myPig[i].myPB.Top + 89) > myPig[i].FinishLine)
-                    //        {
-                    //            //endRace = true;
-                    //        }
-                    //    }
-                    //}
-                    //if (myPig[i].Direction == "Left")
-                    //{
-                    //    while (endRace != true)
-                    //    {
-                    //        Application.DoEvents();
-                    //        myPig[i].myPB.Left -= myrnd.Next(1, 5);
-                    //        if ((myPig[i].myPB.Left + 89) > myPig[i].FinishLine)
-                    //        {
-                    //            //endRace = true;
-                    //        } 
-                    //    }
-                    //}
-                    //if (myPig[i].Direction == "Top")
-                    //{
-                    //    while (endRace != true)
-                    //    {
-                    //        Application.DoEvents();
-                    //        myPig[i].myPB.Top -= myrnd.Next(1, 5);
-                    //        if (myPig[i].myPB.Top > myPig[i].FinishLine)
-                    //        {
-                    //            //endRace = true;
-                    //        } 
-                    //    }
-                    //}
-                    //if (myPig[i].Direction == "Right")
-                    //{
-                    //    while (endRace != true)
-                    //    {
-                    //        Application.DoEvents();
-                    //        myPig[i].myPB.Left += myrnd.Next(1, 5);
-                    //        if (myPig[i].myPB.Left > myPig[i].FinishLine)
-                    //        {
-                    //            //endRace = true;
-                    //        } 
-                    //    }
-                    //}
                 }
-                
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (myPig[i].Winner == true)
+                {
+                    myPig[i].myPB.BackgroundImage = Resource1.first;
+                } 
             }
         }
-
-        //private string SetPigsDirection(string direction)
-        //{
-        //    switch (direction)
-        //    {
-        //        case "Bottom":
-        //            return "";
-
-        //        default: return null;
-        //    }
-        //}
-
-        //private string SetPigsDirection(int Id)
-        //{
-        //    switch (Id)
-        //    {
-        //        case 0:
-        //            return "Bottom";
-        //        case 1:
-        //            return "Left";
-        //        case 2:
-        //            return "Top";
-        //        case 3:
-        //            return "Right";
-        //        default:
-        //            return null;
-        //    }
-        //}
     }
 }
