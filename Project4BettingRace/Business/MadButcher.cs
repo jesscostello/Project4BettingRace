@@ -8,7 +8,7 @@ namespace Project4BettingRace
         {
             PunterName = "Mad Butcher";
             Pig = "";
-            Cash = 50;
+            Cash = 20;
         }
         public int Won { get; set; }
         public int Loss { get; set; }
