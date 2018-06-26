@@ -32,14 +32,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbxMB = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.udMB = new System.Windows.Forms.NumericUpDown();
             this.btnConfirmMB = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblMB = new System.Windows.Forms.Label();
             this.lblFB = new System.Windows.Forms.Label();
             this.labell = new System.Windows.Forms.Label();
             this.btnConfirmFB = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.udFB = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.lblMP = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btnConfirmMP = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.udMP = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,9 +61,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udMB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udFB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -113,12 +113,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Bet Amount: $";
             // 
-            // numericUpDown1
+            // udMB
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(106, 94);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(46, 20);
-            this.numericUpDown1.TabIndex = 5;
+            this.udMB.Location = new System.Drawing.Point(106, 94);
+            this.udMB.Name = "udMB";
+            this.udMB.Size = new System.Drawing.Size(46, 20);
+            this.udMB.TabIndex = 5;
             // 
             // btnConfirmMB
             // 
@@ -176,12 +176,12 @@
             this.btnConfirmFB.Text = "Confirm Bet";
             this.btnConfirmFB.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown2
+            // udFB
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(106, 238);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(46, 20);
-            this.numericUpDown2.TabIndex = 13;
+            this.udFB.Location = new System.Drawing.Point(106, 238);
+            this.udFB.Name = "udFB";
+            this.udFB.Size = new System.Drawing.Size(46, 20);
+            this.udFB.TabIndex = 13;
             // 
             // label7
             // 
@@ -254,12 +254,12 @@
             this.btnConfirmMP.Text = "Confirm Bet";
             this.btnConfirmMP.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown3
+            // udMP
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(106, 388);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(46, 20);
-            this.numericUpDown3.TabIndex = 21;
+            this.udMP.Location = new System.Drawing.Point(106, 388);
+            this.udMP.Name = "udMP";
+            this.udMP.Size = new System.Drawing.Size(46, 20);
+            this.udMP.TabIndex = 21;
             // 
             // label12
             // 
@@ -306,11 +306,12 @@
             // 
             // btnAllBets
             // 
+            this.btnAllBets.Enabled = false;
             this.btnAllBets.Location = new System.Drawing.Point(446, 332);
             this.btnAllBets.Name = "btnAllBets";
             this.btnAllBets.Size = new System.Drawing.Size(132, 71);
             this.btnAllBets.TabIndex = 25;
-            this.btnAllBets.Text = "Place All Bets!";
+            this.btnAllBets.Text = "Start Race!";
             this.btnAllBets.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -406,7 +407,7 @@
             this.Controls.Add(this.lblMP);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnConfirmMP);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.udMP);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label13);
@@ -414,7 +415,7 @@
             this.Controls.Add(this.lblFB);
             this.Controls.Add(this.labell);
             this.Controls.Add(this.btnConfirmFB);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.udFB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label8);
@@ -422,16 +423,16 @@
             this.Controls.Add(this.lblMB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnConfirmMB);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.udMB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbxMB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormBets";
             this.Text = "Create Bets";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udMB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udFB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udMP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -446,14 +447,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxMB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown udMB;
         private System.Windows.Forms.Button btnConfirmMB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblMB;
         private System.Windows.Forms.Label lblFB;
         private System.Windows.Forms.Label labell;
         private System.Windows.Forms.Button btnConfirmFB;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown udFB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
@@ -461,7 +462,7 @@
         private System.Windows.Forms.Label lblMP;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnConfirmMP;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown udMP;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label13;
