@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Project4BettingRace.Business
+{
+    public abstract class Punter
+    {
+        public string PunterName { get; set; }
+        public string Pig { get; set; }
+        public Single Cash { get; set; }
+        public Single Bet { get; set; }
+    }
+}

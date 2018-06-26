@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project4BettingRace.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Project4BettingRace
     {
         // Instantiate an array of pigs
         Pig[] myPig = new Pig[4];
+        Punter[] myPunter = new Punter[3];
 
         public Form1()
         {
@@ -28,6 +30,16 @@ namespace Project4BettingRace
             myPig[2].myPB.BackgroundImage = Resource1.pig4;
             myPig[3] = new Pig { Name = "Ribs", Length = 0, myPB = pb4, StartingLocation = "Left", StartingPosition = 91, FinishLine = 243 };
             myPig[3].myPB.BackgroundImage = Resource1.pig2;
+
+            SetUpPunters();
+        }
+
+        private void SetUpPunters()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                myPunter[i] = Factory.GetAPunter(i);
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
