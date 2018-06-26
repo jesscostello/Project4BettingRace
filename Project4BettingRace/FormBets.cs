@@ -14,13 +14,14 @@ namespace Project4BettingRace
     public partial class FormBets : Form
     {
         Punter[] myPunter = new Punter[3];
+        Punter selectedPunter;
+        string selectedPig;
 
         public FormBets()
         {
             InitializeComponent();
 
             SetUpPunters();
-            SetMaxUDValues();
         }
 
         private void SetUpPunters()
@@ -31,14 +32,56 @@ namespace Project4BettingRace
             }
         }
 
+        private void cbxPunter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selection = cbxPunter.SelectedItem.ToString();
+            int Id = SetComboBoxValue(selection);
+            
+            selectedPunter = myPunter[Id];
+
+            SetMaxUDValues();
+        }
+
         public void SetMaxUDValues()
         {
-            udMB.Maximum = (decimal)myPunter[0].Cash;
-            udFB.Maximum = (decimal)myPunter[1].Cash;
-            udMP.Maximum = (decimal)myPunter[2].Cash;
-            udMB.Value = (decimal)myPunter[0].Cash;
-            udFB.Value = (decimal)myPunter[1].Cash;
-            udMP.Value = (decimal)myPunter[2].Cash;
+            udBet.Maximum = (decimal)selectedPunter.Cash;
+            udBet.Value = (decimal)selectedPunter.Cash;
+
+            lblCashLeft.Text = "I have $" + selectedPunter.Cash + " left to bet with.";
+        }
+
+        private int SetComboBoxValue(string selection)
+        {
+            switch (selection)
+            {
+                case "Mad Butcher":
+                    return 0;
+                case "Farmer Brown":
+                    return 1;
+                case "Mrs Piggy":
+                    return 2;
+                default: return 9;
+            }
+        }
+
+        private void radButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radBacon.Checked)
+            {
+                selectedPig = "Bacon";
+            }
+            if (radHam.Checked)
+            {
+                selectedPig = "Ham";
+            }
+            if (radPork.Checked)
+            {
+                selectedPig = "Pork";
+            }
+            if (radRibs.Checked)
+            {
+                selectedPig = "Ribs";
+            }
         }
     }
 }
