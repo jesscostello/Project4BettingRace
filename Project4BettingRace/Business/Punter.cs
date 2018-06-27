@@ -12,5 +12,6 @@ namespace Project4BettingRace.Business
         public string Pig { get; set; }
         public Single Cash { get; set; }
         public Single Bet { get; set; }
+        public bool Broke { get; set; }
     }
 }

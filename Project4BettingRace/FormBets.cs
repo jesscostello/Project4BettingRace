@@ -15,6 +15,7 @@ namespace Project4BettingRace
     {
         Punter[] myPunter = new Punter[3];
         Punter selectedPunter;
+        public int Id { get; set; }
         string selectedPig;
 
         public FormBets()
@@ -22,6 +23,8 @@ namespace Project4BettingRace
             InitializeComponent();
 
             SetUpPunters();
+            ShowBrokePlayers();
+            LoadComboBox();
         }
 
         private void SetUpPunters()
@@ -32,11 +35,37 @@ namespace Project4BettingRace
             }
         }
 
+        private void LoadComboBox()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (myPunter[i].Broke != true)
+                {
+                    cbxPunter.Items.Add(myPunter[i].PunterName);
+                }
+                
+            }
+        }
+
+        private void ShowBrokePlayers()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (myPunter[i].Cash <= 0)
+                {
+                    myPunter[i].Broke = true;
+                    lblBroke.Text += "\n" + myPunter[i].PunterName + " is broke and can no longer bet.";
+                }
+            }
+        }
+
         private void cbxPunter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Id = cbxPunter.SelectedIndex;
             string selection = cbxPunter.SelectedItem.ToString();
-            int Id = SetComboBoxValue(selection);
-            
+            // set ID manually because indexes change once punters are removed from the combobox
+            Id = SetComboBoxValue(selection);
+
             selectedPunter = myPunter[Id];
 
             SetMaxUDValues();
@@ -82,6 +111,47 @@ namespace Project4BettingRace
             {
                 selectedPig = "Ribs";
             }
+            btnConfirm.Enabled = true;
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            selectedPunter.Bet = (float)udBet.Value;
+            selectedPunter.Pig = selectedPig;
+
+            lblBet1.Text += "\n" + selectedPunter.PunterName + " is placing a $" + selectedPunter.Bet + " bet on " + selectedPunter.Pig;
+            lblCashLeft.Text = string.Empty;
+            udBet.Value = 0;
+            btnConfirm.Enabled = false;
+            cbxPunter.Items.Remove(cbxPunter.SelectedItem);
+            // uncheck the selected radio button
+            if (radBacon.Checked)
+            {
+                radBacon.Checked = false;
+            }
+            else if (radHam.Checked)
+            {
+                radHam.Checked = false;
+            }
+            else if (radPork.Checked)
+            {
+                radPork.Checked = false;
+            }
+            else if (radRibs.Checked)
+            {
+                radRibs.Checked = false;
+            }
+
+            if (cbxPunter.Items.Count == 0)
+            {
+                cbxPunter.Enabled = false;
+                btnAllBets.Enabled = true;
+            }
+        }
+
+        private void btnAllBets_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
