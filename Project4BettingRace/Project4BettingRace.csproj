@@ -108,12 +108,6 @@
     <None Include="Resources\track.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pig1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pig2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pig3.png" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +118,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pig1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pig2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mud.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,10 +16,12 @@ namespace Project4BettingRace
         // Instantiate an array of pigs
         Pig[] myPig = new Pig[4];
         Punter[] myPunter = new Punter[3];
+        //FormBets fb = new FormBets();
 
         public Form1()
         {
             InitializeComponent();
+            //fb.Close();
 
             // Give the pigs starting variables
             myPig[0] = new Pig { Name = "Bacon", Length = 0, myPB = pb1, StartingLocation = "Top", StartingPosition = 1, FinishLine = 248 };
@@ -59,6 +61,7 @@ namespace Project4BettingRace
                         {
                             myPig[i].Winner = true;
                             endRace = true;
+                            break;
                         }
                     }
                     else if (myPig[i].StartingLocation == "Right")
@@ -67,6 +70,7 @@ namespace Project4BettingRace
                         {
                             myPig[i].Winner = true;
                             endRace = true;
+                            break;
                         }
                     }
                     else if (myPig[i].StartingLocation == "Bottom")
@@ -75,6 +79,7 @@ namespace Project4BettingRace
                         {
                             myPig[i].Winner = true;
                             endRace = true;
+                            break;
                         }
                     }
                     else if (myPig[i].StartingLocation == "Left")
@@ -83,6 +88,7 @@ namespace Project4BettingRace
                         {
                             myPig[i].Winner = true;
                             endRace = true;
+                            break;
                         }
                     }
                 }

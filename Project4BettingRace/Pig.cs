@@ -12,7 +12,7 @@ namespace Project4BettingRace
         public string Name { get; set; }
         public int Length { get; set; }
         public PictureBox myPB { get; set; }
-        // Direction which pig will travel towards
+        // Side of the screen pig starts on
         public string StartingLocation { get; set; }
         public int StartingPosition { get; set; }
         public int FinishLine { get; set; }
@@ -23,19 +23,19 @@ namespace Project4BettingRace
         {
             if (StartingLocation == "Top")
             {
-                myPB.Top += myrnd.Next(1, 5);
+                myPB.Top += myrnd.Next(0, 7);
             }
-            else if (StartingLocation == "Right")
+            if (StartingLocation == "Right")
             {
-                myPB.Left -= myrnd.Next(1, 5);
+                myPB.Left -= myrnd.Next(0, 7);
             }
-            else if (StartingLocation == "Bottom")
+            if (StartingLocation == "Bottom")
             {
-                myPB.Top -= myrnd.Next(1, 5);
+                myPB.Top -= myrnd.Next(0, 7);
             }
-            else if (StartingLocation == "Left")
+            if (StartingLocation == "Left")
             {
-                myPB.Left += myrnd.Next(1, 5);
+                myPB.Left += myrnd.Next(0, 7);
             } 
         }
     }

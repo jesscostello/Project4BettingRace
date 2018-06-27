@@ -94,7 +94,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::Project4BettingRace.Resource1.finish;
+            this.pictureBox1.BackgroundImage = global::Project4BettingRace.Resource1.mud;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(243, 248);
             this.pictureBox1.Name = "pictureBox1";
@@ -118,7 +118,7 @@
             this.Controls.Add(this.pb1);
             this.DoubleBuffered = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Race";
             this.TransparencyKey = System.Drawing.Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();

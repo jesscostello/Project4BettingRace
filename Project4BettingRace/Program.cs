@@ -16,7 +16,7 @@ namespace Project4BettingRace
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormBets());
+            Application.Run(new Form1());
         }
     }
 }

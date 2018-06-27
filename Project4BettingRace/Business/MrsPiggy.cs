@@ -8,7 +8,7 @@ namespace Project4BettingRace
         {
             PunterName = "Mrs Piggy";
             Pig = "";
-            Cash = 0;
+            Cash = 50;
             Broke = false;
         }
         public int Won { get; set; }

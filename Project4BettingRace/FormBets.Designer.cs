@@ -58,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 63);
+            this.label1.Location = new System.Drawing.Point(13, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 1;
@@ -105,7 +105,7 @@
             // lblCashLeft
             // 
             this.lblCashLeft.AutoSize = true;
-            this.lblCashLeft.Location = new System.Drawing.Point(198, 64);
+            this.lblCashLeft.Location = new System.Drawing.Point(198, 76);
             this.lblCashLeft.Name = "lblCashLeft";
             this.lblCashLeft.Size = new System.Drawing.Size(0, 13);
             this.lblCashLeft.TabIndex = 8;
@@ -168,7 +168,7 @@
             // cbxPunter
             // 
             this.cbxPunter.FormattingEnabled = true;
-            this.cbxPunter.Location = new System.Drawing.Point(68, 60);
+            this.cbxPunter.Location = new System.Drawing.Point(68, 72);
             this.cbxPunter.Name = "cbxPunter";
             this.cbxPunter.Size = new System.Drawing.Size(121, 21);
             this.cbxPunter.TabIndex = 34;
@@ -243,8 +243,9 @@
             // lblBroke
             // 
             this.lblBroke.AutoSize = true;
+            this.lblBroke.BackColor = System.Drawing.Color.Transparent;
             this.lblBroke.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBroke.Location = new System.Drawing.Point(9, 25);
+            this.lblBroke.Location = new System.Drawing.Point(9, 22);
             this.lblBroke.Name = "lblBroke";
             this.lblBroke.Size = new System.Drawing.Size(0, 13);
             this.lblBroke.TabIndex = 41;
@@ -253,6 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(347, 440);
             this.Controls.Add(this.lblBroke);
             this.Controls.Add(this.lblInstructions);
