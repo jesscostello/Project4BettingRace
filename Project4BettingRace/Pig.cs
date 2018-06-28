@@ -10,7 +10,7 @@ namespace Project4BettingRace
     class Pig
     {
         public string Name { get; set; }
-        public int Length { get; set; }
+        //public int Length { get; set; }
         public PictureBox myPB { get; set; }
         // Side of the screen pig starts on
         public string StartingLocation { get; set; }

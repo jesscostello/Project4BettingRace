@@ -2,21 +2,14 @@
 
 namespace Project4BettingRace
 {
-    class FarmerBrown : Punter, IBettingDetails
+    class FarmerBrown : Punter
     {
         public FarmerBrown()
         {
             PunterName = "Farmer Brown";
             Pig = "";
-            Cash = 30;
+            Cash = 50;
             Broke = false;
-        }
-        public int Won { get; set; }
-        public int Loss { get; set; }
-
-        public int TotalBets()
-        {
-            return Won + Loss;
         }
     }
 }

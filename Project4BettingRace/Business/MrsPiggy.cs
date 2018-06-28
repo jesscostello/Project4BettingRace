@@ -2,7 +2,7 @@
 
 namespace Project4BettingRace
 {
-    class MrsPiggy : Punter, IBettingDetails
+    class MrsPiggy : Punter
     {
         public MrsPiggy()
         {
@@ -10,13 +10,6 @@ namespace Project4BettingRace
             Pig = "";
             Cash = 50;
             Broke = false;
-        }
-        public int Won { get; set; }
-        public int Loss { get; set; }
-
-        public int TotalBets()
-        {
-            return Won + Loss;
         }
     }
 }

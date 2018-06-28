@@ -13,18 +13,44 @@ namespace Project4BettingRace
 {
     public partial class FormBets : Form
     {
+        Pig[] myPig = new Pig[4];
         Punter[] myPunter = new Punter[3];
         Punter selectedPunter;
         public int Id { get; set; }
-        string selectedPig;
+        public string selectedPig { get; set; }
+        public string winner { get; set; }
+
 
         public FormBets()
         {
             InitializeComponent();
 
+            SetUpPigs();
             SetUpPunters();
             ShowBrokePlayers();
             LoadComboBox();
+        }
+
+        private void SetUpPigs()
+        {
+            // Give the pigs starting variables
+            myPig[0] = new Pig { Name = "Bacon", myPB = pb1, StartingLocation = "Top", StartingPosition = 1, FinishLine = 248 };
+
+            myPig[1] = new Pig { Name = "Pork", myPB = pb2, StartingLocation = "Right", StartingPosition = 877, FinishLine = 717 };
+
+            myPig[2] = new Pig { Name = "Ham", myPB = pb3, StartingLocation = "Bottom", StartingPosition = 493, FinishLine = 337 };
+
+            myPig[3] = new Pig { Name = "Ribs", myPB = pb4, StartingLocation = "Left", StartingPosition = 387, FinishLine = 628 };
+
+            SetPigPictures();
+        }
+
+        private void SetPigPictures()
+        {
+            myPig[0].myPB.BackgroundImage = Resource1.pig3;
+            myPig[1].myPB.BackgroundImage = Resource1.pig1;
+            myPig[2].myPB.BackgroundImage = Resource1.pig4;
+            myPig[3].myPB.BackgroundImage = Resource1.pig2;
         }
 
         private void SetUpPunters()
@@ -49,6 +75,7 @@ namespace Project4BettingRace
 
         private void ShowBrokePlayers()
         {
+            lblBroke.Text = string.Empty;
             for (int i = 0; i < 3; i++)
             {
                 if (myPunter[i].Cash <= 0)
@@ -151,8 +178,123 @@ namespace Project4BettingRace
 
         private void btnAllBets_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
+            bool endRace = false;
+            while (endRace != true)
+            {
+
+                for (int i = 0; i < 4; i++)
+                {
+                    Application.DoEvents();
+                    myPig[i].Run();
+
+                    if (myPig[i].StartingLocation == "Top")
+                    {
+                        if ((myPig[i].myPB.Top + 89) > myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                            break;
+                        }
+                    }
+                    else if (myPig[i].StartingLocation == "Right")
+                    {
+                        if ((myPig[i].myPB.Left) < myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                            break;
+                        }
+                    }
+                    else if (myPig[i].StartingLocation == "Bottom")
+                    {
+                        if (myPig[i].myPB.Top < myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                            break;
+                        }
+                    }
+                    else if (myPig[i].StartingLocation == "Left")
+                    {
+                        if ((myPig[i].myPB.Left + 89) > myPig[i].FinishLine)
+                        {
+                            myPig[i].Winner = true;
+                            endRace = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < 4; i++)
+            {
+                if (myPig[i].Winner == true)
+                {
+                    myPig[i].myPB.BackgroundImage = Resource1.first;
+                    winner = myPig[i].Name;
+                    EndOfRace();
+                }
+            }
+        }
+
+        private void EndOfRace()
+        {
+            string results = winner + " won the race.";
+            
+            for (int i = 0; i < 3; i++)
+            {
+                if (myPunter[i].Cash >= 1)
+                {
+                    if (myPunter[i].Pig == winner)
+                    {
+                        // add om the amount that they bet
+                        myPunter[i].Cash += myPunter[i].Bet;
+                        results += "\n" + myPunter[i].PunterName + " won their bet and now has $" + myPunter[i].Cash;
+                    }
+                    else
+                    {
+                        // take away the amount that they bet and lost
+                        myPunter[i].Cash -= myPunter[i].Bet;
+                        if (myPunter[i].Cash <= 0)
+                        {
+                            results += "\n" + myPunter[i].PunterName + " lost their bet so is now BUSTED and can no longer make any more bets";
+                            myPunter[i].Broke = true;
+                        }
+                        else
+                        {
+                            results += "\n" + myPunter[i].PunterName + " lost their bet and now has $" + myPunter[i].Cash;
+                        }
+                    }
+                }
+                
+            }
+            MessageBox.Show(results);
+            LoadComboBox();
+            if (cbxPunter.Items.Count == 0)
+            {
+                MessageBox.Show("Uh oh! Everyone lost their money, game over! \n\nStart again");
+                for (int i = 0; i < 3; i++)
+                {
+                    myPunter[i].Cash = 50;
+                }
+            }
+            RefreshForm();
+            
+        }
+
+        private void RefreshForm()
+        {
+            cbxPunter.Enabled = true;
+            lblBroke.Text = string.Empty;
+            ShowBrokePlayers();
+            lblCashLeft.Text = string.Empty;
+            udBet.Value = 0;
+            lblBet1.Text = string.Empty;
+            myPig[0].myPB.Top = myPig[0].StartingPosition;
+            myPig[1].myPB.Left = myPig[1].StartingPosition;
+            myPig[2].myPB.Top = myPig[2].StartingPosition;
+            myPig[3].myPB.Left = myPig[3].StartingPosition;
+            SetUpPigs();
         }
     }
 }
