@@ -125,7 +125,6 @@
             // 
             // btnAllBets
             // 
-            this.btnAllBets.Enabled = false;
             this.btnAllBets.Location = new System.Drawing.Point(106, 353);
             this.btnAllBets.Name = "btnAllBets";
             this.btnAllBets.Size = new System.Drawing.Size(132, 71);
@@ -361,7 +360,6 @@
             this.Name = "FormBets";
             this.Text = "The Great Pig Race";
             this.TransparencyKey = System.Drawing.Color.Red;
-            //this.Load += new System.EventHandler(this.FormBets_Load);
             ((System.ComponentModel.ISupportInitialize)(this.udBet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();

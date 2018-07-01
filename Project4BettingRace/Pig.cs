@@ -10,32 +10,37 @@ namespace Project4BettingRace
     class Pig
     {
         public string Name { get; set; }
-        //public int Length { get; set; }
         public PictureBox myPB { get; set; }
         // Side of the screen pig starts on
         public string StartingLocation { get; set; }
+        // top or left coordinates where the pig starts
         public int StartingPosition { get; set; }
         public int FinishLine { get; set; }
         public bool Winner { get; set; }
-        public Random myrnd { get; set; } = new Random();
-
-        public void Run()
+        /// <summary>
+        /// Moves the pig's picture box in the correct direction towards the finish line by adding on random numbers
+        /// </summary>
+        public void Run(int num)
         {
+            // move pig down
             if (StartingLocation == "Top")
             {
-                myPB.Top += myrnd.Next(0, 7);
+                myPB.Top += num;
             }
+            // move pig to the left
             if (StartingLocation == "Right")
             {
-                myPB.Left -= myrnd.Next(0, 7);
+                myPB.Left -= num;
             }
+            // move pig up
             if (StartingLocation == "Bottom")
             {
-                myPB.Top -= myrnd.Next(0, 7);
+                myPB.Top -= num;
             }
+            // move pig to the right
             if (StartingLocation == "Left")
             {
-                myPB.Left += myrnd.Next(0, 7);
+                myPB.Left += num;
             } 
         }
     }

@@ -13,13 +13,13 @@ namespace Project4BettingRace
 {
     public partial class FormBets : Form
     {
+        // instantiate an array of pigs and punters
         Pig[] myPig = new Pig[4];
         Punter[] myPunter = new Punter[3];
         Punter selectedPunter;
         public int Id { get; set; }
         public string selectedPig { get; set; }
         public string winner { get; set; }
-
 
         public FormBets()
         {
@@ -34,13 +34,10 @@ namespace Project4BettingRace
         private void SetUpPigs()
         {
             // Give the pigs starting variables
-            myPig[0] = new Pig { Name = "Bacon", myPB = pb1, StartingLocation = "Top", StartingPosition = 1, FinishLine = 248 };
-
-            myPig[1] = new Pig { Name = "Pork", myPB = pb2, StartingLocation = "Right", StartingPosition = 877, FinishLine = 717 };
-
-            myPig[2] = new Pig { Name = "Ham", myPB = pb3, StartingLocation = "Bottom", StartingPosition = 493, FinishLine = 337 };
-
-            myPig[3] = new Pig { Name = "Ribs", myPB = pb4, StartingLocation = "Left", StartingPosition = 387, FinishLine = 628 };
+            myPig[0] = new Pig { Name = "Bacon", myPB = pb1, StartingLocation = "Top", StartingPosition = 1, FinishLine = 248 }; //158
+            myPig[1] = new Pig { Name = "Pork", myPB = pb2, StartingLocation = "Right", StartingPosition = 875, FinishLine = 717 };//158
+            myPig[2] = new Pig { Name = "Ham", myPB = pb3, StartingLocation = "Bottom", StartingPosition = 491, FinishLine = 337 };//158
+            myPig[3] = new Pig { Name = "Ribs", myPB = pb4, StartingLocation = "Left", StartingPosition = 381, FinishLine = 628 };//158
 
             SetPigPictures();
         }
@@ -69,7 +66,6 @@ namespace Project4BettingRace
                 {
                     cbxPunter.Items.Add(myPunter[i].PunterName);
                 }
-                
             }
         }
 
@@ -178,6 +174,12 @@ namespace Project4BettingRace
 
         private void btnAllBets_Click(object sender, EventArgs e)
         {
+            int[] num = new int[4];
+            Random rnd = new Random();
+            for (int i = 0; i < 4; i++)
+            {
+                num[i] = rnd.Next(1, 5);
+            }
             bool endRace = false;
             while (endRace != true)
             {
@@ -185,7 +187,7 @@ namespace Project4BettingRace
                 for (int i = 0; i < 4; i++)
                 {
                     Application.DoEvents();
-                    myPig[i].Run();
+                    myPig[i].Run(num[i]);
 
                     if (myPig[i].StartingLocation == "Top")
                     {
@@ -286,6 +288,7 @@ namespace Project4BettingRace
         {
             cbxPunter.Enabled = true;
             lblBroke.Text = string.Empty;
+            //LoadComboBox();
             ShowBrokePlayers();
             lblCashLeft.Text = string.Empty;
             udBet.Value = 0;
