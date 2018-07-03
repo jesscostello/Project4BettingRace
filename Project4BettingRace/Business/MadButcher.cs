@@ -6,6 +6,7 @@ namespace Project4BettingRace
     {
         public MadButcher()
         {
+            // set up values for punter
             PunterName = "Mad Butcher";
             Pig = "";
             Cash = 50;

@@ -6,6 +6,7 @@ namespace Project4BettingRace
     {
         public MrsPiggy()
         {
+            // set up values for punter
             PunterName = "Mrs Piggy";
             Pig = "";
             Cash = 50;
