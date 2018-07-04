@@ -8,6 +8,9 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// Test that the random number is between 1 and 5
+        /// </summary>
         [TestMethod]
         public void TestRandomNumber()
         {
@@ -16,7 +19,9 @@ namespace UnitTestProject1
 
             Assert.IsTrue(result >= 1 && result <= 5);
         }
-
+        /// <summary>
+        /// Test that the number is not greater than 5
+        /// </summary>
         [TestMethod]
         public void TestLargeNumber()
         {
@@ -25,7 +30,9 @@ namespace UnitTestProject1
 
             Assert.IsFalse(result > 5);
         }
-
+        /// <summary>
+        /// Test that the values from instantiation are set using the factory method
+        /// </summary>
         [TestMethod]
         public void TestValuesFromInstantiation()
         {
