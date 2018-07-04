@@ -125,6 +125,7 @@
             // 
             // btnAllBets
             // 
+            this.btnAllBets.Enabled = false;
             this.btnAllBets.Location = new System.Drawing.Point(106, 353);
             this.btnAllBets.Name = "btnAllBets";
             this.btnAllBets.Size = new System.Drawing.Size(132, 71);
