@@ -2,7 +2,7 @@
 
 namespace Project4BettingRace
 {
-    class FarmerBrown : Punter
+    public class FarmerBrown : Punter
     {
         public FarmerBrown()
         {
